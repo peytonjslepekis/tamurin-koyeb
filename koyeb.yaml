@@ -1,0 +1,16 @@
+name: tamerlane-chess
+services:
+  - name: tamerlane-chess
+    type: web
+    routes:
+      - port: 3001
+        path: /
+    env:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: "3001"
+    build:
+      command: npm run build
+    run:
+      command: npm start
