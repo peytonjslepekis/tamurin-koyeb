@@ -154,10 +154,26 @@ export default function Game({ roomCode, playerColor, initialState, waiting: ini
         <div className="rules-quick">
           <h4>Piece Guide</h4>
           <div className="piece-list">
-            {['K','F','V','G','P','N','R','E','C','D'].map(t => (
+            {[
+              { t:'K',  name:'Shah (King)',        move:'1 step any direction' },
+              { t:'R',  name:'Rook',               move:'Slides orthogonally' },
+              { t:'N',  name:'Knight',             move:'L-shape jump (2+1)' },
+              { t:'F',  name:'Ferz (General)',     move:'1 step diagonal' },
+              { t:'V',  name:'Vizir (Governor)',   move:'1 step orthogonal' },
+              { t:'E',  name:'Elephant',           move:'Jumps 2 diagonal' },
+              { t:'C',  name:'Camel',              move:'Jumps (1,3) L-shape' },
+              { t:'D',  name:'Dabbaba',            move:'Jumps 2 orthogonal' },
+              { t:'P',  name:'Picket (Scout)',     move:'Bishop, min 2 squares' },
+              { t:'G',  name:'Giraffe',            move:'1 diag passthru + 3+ ortho' },
+              { t:'PR', name:'Prince',             move:'Moves like King; royal' },
+              { t:'AK', name:'Adv. King',          move:'Moves like King; royal' },
+            ].map(({ t, name, move }) => (
               <div key={t} className="piece-entry">
-                <span className="pe-abbr">{t}</span>
-                <span className="pe-name">{getPieceName(t)}</span>
+                <div className="piece-entry-header">
+                  <span className="pe-abbr">{t}</span>
+                  <span className="pe-name">{name}</span>
+                </div>
+                <div className="pe-move">{move}</div>
               </div>
             ))}
           </div>
